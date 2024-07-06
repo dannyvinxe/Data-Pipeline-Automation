@@ -1,0 +1,28 @@
+import os
+import pandas as pd
+
+# Create data directory
+os.makedirs('data', exist_ok=True)
+print("Directory 'data' created (if it didn't exist).")
+
+# Sample data
+data = {
+    'name': ['Alice', 'Bob', 'Charlie'],
+    'age': [30, 25, 35],
+    'city': ['New York', 'Los Angeles', 'Chicago']
+}
+
+# Create CSV file
+df = pd.DataFrame(data)
+df.to_csv('data/input_file.csv', index=False)
+print("CSV file 'input_file.csv' created.")
+
+# Create Excel file
+df.to_excel('data/input_file.xlsx', index=False)
+print("Excel file 'input_file.xlsx' created.")
+
+# Create JSON file
+df.to_json('data/input_file.json', orient='records', lines=True)
+print("JSON file 'input_file.json' created.")
+
+print("All input files created successfully in the 'data' directory.")
